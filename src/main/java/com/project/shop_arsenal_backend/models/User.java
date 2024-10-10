@@ -1,5 +1,6 @@
 package com.project.shop_arsenal_backend.models;
 
+import com.project.shop_arsenal_backend.models.enums.UserType;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -37,4 +38,8 @@ public class User {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Employee employee; // Thông tin nhân viên liên kết
+
+    @Enumerated(EnumType.STRING) // Chỉ định kiểu enum lưu dưới dạng chuỗi
+    @Column(name = "user_type", nullable = false)
+    private UserType userType; // Loại người dùng (CUSTOMER hoặc EMPLOYEE)
 }

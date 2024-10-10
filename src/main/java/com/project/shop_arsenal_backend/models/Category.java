@@ -19,6 +19,9 @@ public class Category {
     @Column(columnDefinition = "TEXT")
     private String description; // Mô tả chi tiết về danh mục
 
+    @Column(length = 255)
+    private String imageUrl;
+
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private Set<Product> products; // Danh sách sản phẩm thuộc danh mục này
 }
